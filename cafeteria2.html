@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechFest 2023 - O maior evento de tecnologia do ano">
+    <title>TechFest 2023</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        header p {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #00bfff;
+        }
+        .speakers, .schedule, .register, .location {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .speakers h2, .schedule h2, .register h2, .location h2 {
+            font-size: 2.5em;
+            color: #00bfff;
+            margin-bottom: 30px;
+        }
+        .speakers .speaker-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .speakers .speaker {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .speakers .speaker img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        .speakers .speaker h3 {
+            margin-top: 15px;
+            font-size: 1.5em;
+        }
+        .speakers .speaker p {
+            font-size: 1em;
+            color: #666;
+        }
+        .schedule .timeline {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .schedule .timeline li {
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #00bfff;
+        }
+        .schedule .timeline li h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .schedule .timeline li p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #666;
+        }
+        .register form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .register form input, .register form button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+        .register form button {
+            background-color: #00bfff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .location iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TechFest 2023</h1>
+        <p>12-14 de Novembro de 2023</p>
+    </header>
+
+    <section class="speakers">
+        <h2>Palestrantes</h2>
+        <div class="speaker-list">
+            <div class="speaker">
+                <img src="https://media.istockphoto.com/id/1367421610/pt/foto/view-of-young-man-using-a-smartphone-at-night-time-with-city-view-landscape-in-the-background.jpg?s=612x612&w=0&k=20&c=8LBMiPA1n2ycEUXUr_UVUSBPAppf5Y5UXJuybHb62DU=" alt="Palestrante 1">
+                <h3>João Silva</h3>
+                <p>Especialista em Inteligência Artificial</p>
+            </div>
+            <div class="speaker">
+                <img src="https://www.jornaldocomercio.com/_midias/jpg/2023/11/05/mercado_digital_carol_strobel_jornal_do_comercio-10379122.jpg" alt="Palestrante 2">
+                <h3>Maria Pereira</h3>
+                <p>Engenheira de Software e Desenvolvedora Full Stack</p>
+            </div>
+            <div class="speaker">
+                <img src="https://media.istockphoto.com/id/1464539429/pt/foto/thoughtful-business-man-with-a-digital-tablet.jpg?s=612x612&w=0&k=20&c=ZcTlaoTqPmPni2phLqYPtFWGo357NC6fZaPcJPWE-5I=" alt="Palestrante 3">
+                <h3>Carlos Lima</h3>
+                <p>CEO da Startup X e Futurista Tecnológico</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule">
+        <h2>Programação</h2>
+        <ul class="timeline">
+            <li>
+                <h3>12 de Novembro - Abertura</h3>
+                <p>09:00 - 10:00: Palestra de abertura com João Silva</p>
+            </li>
+            <li>
+                <h3>13 de Novembro - Workshops</h3>
+                <p>10:00 - 12:00: Workshop de IA com Maria Pereira</p>
+                <p>14:00 - 16:00: Painel de Discussão: O Futuro da Tecnologia</p>
+            </li>
+            <li>
+                <h3>14 de Novembro - Encerramento</h3>
+                <p>09:00 - 10:30: Keynote de Encerramento com Carlos Lima</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="register">
+        <h2>Inscreva-se</h2>
+        <form action="#">
+            <input type="text" name="nome" placeholder="Seu Nome" required>
+            <input type="email" name="email" placeholder="Seu Email" required>
+            <button type="submit">Enviar Inscrição</button>
+        </form>
+    </section>
+
+    <section class="location">
+        <h2>Local do Evento</h2>
+        <p>Centro de Convenções TechWorld, São Paulo - SP</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1
