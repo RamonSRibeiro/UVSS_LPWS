@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rising Stars - Página de Perfil</title>
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        h1, h2, h3 {
+            color: #ff0000;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        header {
+            background-color: #000;
+            color: #ff0000;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 4px solid #ff0000;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        /* Seção de biografia */
+        .biography {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* Seção de discografia */
+        .discography-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .albums-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .album {
+            background-color: #1e1e1e;
+            padding: 15px;
+            width: 300px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s;
+            border: 2px solid #333;
+            text-align: center;
+        }
+
+        .album img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .album:hover {
+            transform: scale(1.05);
+            border-color: #ff0000;
+        }
+
+        /* Player de vídeo */
+        .media {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .player {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #333;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .player video {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+        }
+
+        /* Seção de datas de turnê */
+        .tour-dates {
+            margin: 30px 0;
+        }
+
+        .tour-dates ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tour-dates li {
+            background-color: #1e1e1e;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            border: 2px solid #333;
+        }
+
+        /* Formulário de contato */
+        .contact-form {
+            background-color: #1e1e1e;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            margin-bottom: 30px;
+            border: 2px solid #333;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #333;
+            color: #e0e0e0;
+        }
+
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
+            color: #888;
+        }
+
+        .contact-form button {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #b30000;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 4px solid #ff0000;
+        }
+
+        footer a {
+            color: #ff0000;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .albums-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .album {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <img src="https://i.pinimg.com/564x/dd/19/d3/dd19d38e2db43a84ff68160976dc40c1.jpg" alt="Foto de perfil">
+        <h1>The Rising Moon</h1>
+        <p>Banda de rock alternativa com um toque de jazz</p>
+    </header>
+
+    <div class="container">
+        <!-- Biografia -->
+        <section class="biography">
+            <h2>Biografia</h2>
+            <p>The Rising Moon é uma banda formada em 2015, que mistura o som clássico do rock com elementos de jazz moderno. Com 3 álbuns lançados e turnês internacionais, eles rapidamente se tornaram uma das bandas mais aclamadas da última década.</p>
+        </section>
+
+        <!-- Discografia -->
+        <section class="discography">
+            <h2 class="discography-title">Discografia</h2>
+            <div class="albums-container">
+                <div class="album">
+                    <img src="https://th.bing.com/th/id/OIG2.Xus470pcCy6h_oZ2t0Uf?pid=ImgGn" alt="Álbum 1">
+                    <h3>Álbum 1: Rising Sun</h3>
+                    <p>Lançamento: 2016</p>
+                    <p>Músicas: "Sunrise", "Beyond the Stars", "Nightfall"</p>
+                </div>
+                <div class="album">
+                    <img src="https://th.bing.com/th/id/OIG4.9fITlKQqKdUVgel99DHn?w=1024&h=1024&rs=1&pid=ImgDetMain" alt="Álbum 2">
+                    <h3>Álbum 2: Jazz Rock Revolution</h3>
+                    <p>Lançamento: 2018</p>
+                    <p>Músicas: "Jazz in Motion", "Electric Wave", "Revolution"</p>
+                </div>
+                <div class="album">
+                    <img src="https://th.bing.com/th/id/OIG1.JzXsQKmpBxSc4BPL1t.T?pid=ImgGn" alt="Álbum 3">
+                    <h3>Eternal Night</h3>
+                    <p>Lançamento: 2021</p>
+                    <p>Músicas: "Eclipse", "Dark Skies", "Forevermore"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Player de vídeo -->
+        <section class="media">
+            <h2>Vídeos/Músicas</h2>
+            <div class="player">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/8Ix6Mgq7xbU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+
+        <!-- Datas de Turnê -->
+        <section class="tour-dates">
+            <h2>Próximas Datas de Turnê</h2>
+            <ul>
+                <li><strong>12 de Outubro, 2024:</strong> São Paulo, Brasil - Auditório Ibirapuera</li>
+                <li><strong>15 de Novembro, 2024:</strong> Nova York, EUA - Madison Square Garden</li>
+                <li><strong>23 de Dezembro, 2024:</strong> Londres, Reino Unido - O2 Arena</li>
+            </ul>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section class="contact-form">
+            <h2>Contato</h2>
+            <form>
+                <input type="text" name="name" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="Seu e-mail" required>
+                <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Siga-nos nas redes sociais</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </footer>
+
+</body>
+</html>
