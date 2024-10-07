@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1c1c1c;
+            color: #ff5c5c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid #ff5c5c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 92, 92, 0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .converter {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100px;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #2a2a2a;
+            color: #ff5c5c;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #ff5c5c;
+            color: #1c1c1c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #ff3b3b;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Temperatura</h1>
+        <div class="converter">
+            <input type="number" id="celsius" placeholder="°C" oninput="converterParaFahrenheit()">
+            <span>Converter para °F</span>
+            <input type="number" id="fahrenheit" placeholder="°F" oninput="converterParaCelsius()">
+            <span>Converter para °C</span>
+        </div>
+        <div id="resultado"></div>
+    </div>
+    <script>
+        function converterParaFahrenheit() {
+            const celsius = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(celsius)) {
+                const fahrenheit = (celsius * 9 / 5) + 32;
+                document.getElementById("resultado").innerText = `${celsius} °C = ${fahrenheit.toFixed(2)} °F`;
+            } else {
+                document.getElementById("resultado").innerText = "";
+            }
+        }
+
+        function converterParaCelsius() {
+            const fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+            if (!isNaN(fahrenheit)) {
+                const celsius = (fahrenheit - 32) * 5 / 9;
+                document.getElementById("resultado").innerText = `${fahrenheit} °F = ${celsius.toFixed(2)} °C`;
+            } else {
+                document.getElementById("resultado").innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>

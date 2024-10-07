@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Caracteres</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1c1c1c;
+            color: #ff5c5c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid #ff5c5c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 92, 92, 0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        textarea {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #2a2a2a;
+            color: #ff5c5c;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contador de Caracteres</h1>
+        <textarea id="texto" placeholder="Digite seu texto aqui..." oninput="contarCaracteres()"></textarea>
+        <div id="resultado"></div>
+    </div>
+    <script>
+        function contarCaracteres() {
+            const texto = document.getElementById("texto").value;
+            const totalCaracteres = texto.length;
+            const vogais = texto.match(/[aeiouáéíóúãõâêîôû]/gi) || [];
+            const consoantes = texto.match(/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g) || [];
+            const totalVogais = vogais.length;
+            const totalConsoantes = consoantes.length;
+
+            document.getElementById("resultado").innerHTML = `
+                <p>Total de caracteres: ${totalCaracteres}</p>
+                <p>Total de vogais: ${totalVogais}</p>
+                <p>Total de consoantes: ${totalConsoantes}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
