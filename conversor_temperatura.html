@@ -57,6 +57,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -78,27 +79,45 @@
             <input type="number" id="fahrenheit" placeholder="°F" oninput="converterParaCelsius()">
             <span>Converter para °C</span>
         </div>
+        <button onclick="resetar()">Resetar</button>
         <div id="resultado"></div>
     </div>
     <script>
         function converterParaFahrenheit() {
             const celsius = parseFloat(document.getElementById("celsius").value);
             if (!isNaN(celsius)) {
+                document.getElementById("fahrenheit").disabled = true;  // Desabilita o campo de Fahrenheit
                 const fahrenheit = (celsius * 9 / 5) + 32;
                 document.getElementById("resultado").innerText = `${celsius} °C = ${fahrenheit.toFixed(2)} °F`;
             } else {
                 document.getElementById("resultado").innerText = "";
+                document.getElementById("fahrenheit").disabled = false;  // Habilita o campo de Fahrenheit
             }
         }
 
         function converterParaCelsius() {
             const fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
             if (!isNaN(fahrenheit)) {
+                document.getElementById("celsius").disabled = true;  // Desabilita o campo de Celsius
                 const celsius = (fahrenheit - 32) * 5 / 9;
                 document.getElementById("resultado").innerText = `${fahrenheit} °F = ${celsius.toFixed(2)} °C`;
             } else {
                 document.getElementById("resultado").innerText = "";
+                document.getElementById("celsius").disabled = false;  // Habilita o campo de Celsius
             }
+        }
+
+        function resetar() {
+            // Limpa os valores dos inputs
+            document.getElementById("celsius").value = "";
+            document.getElementById("fahrenheit").value = "";
+
+            // Habilita ambos os inputs
+            document.getElementById("celsius").disabled = false;
+            document.getElementById("fahrenheit").disabled = false;
+
+            // Limpa o resultado
+            document.getElementById("resultado").innerText = "";
         }
     </script>
 </body>
