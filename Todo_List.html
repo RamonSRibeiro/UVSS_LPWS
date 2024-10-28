@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk To-Do List</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Centralização da página */
+    body, html {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin: 0;
+      background-color: #0d0d0d;
+      color: #ff6666;
+      font-family: 'Roboto Mono', monospace;
+    }
+    /* Container principal */
+    .todo-container {
+      max-width: 500px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px #ff6666;
+    }
+    /* Estilo dos botões e entrada */
+    .form-control, .btn {
+      background-color: #333;
+      border: none;
+      color: #ff6666;
+      box-shadow: 0px 0px 5px #ff6666;
+    }
+    .btn:hover {
+      background-color: #ff6666;
+      color: #fff;
+    }
+    /* Estilo dos itens da lista */
+    .todo-item {
+      background-color: #262626;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0px 0px 5px #ff6666;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: #808080;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container todo-container">
+  <h1 class="text-center">Cyberpunk To-Do List</h1>
+  <div class="input-group mb-3">
+    <input type="text" id="todo-input" class="form-control" placeholder="Add a new task">
+    <div class="input-group-append">
+      <button id="add-btn" class="btn btn-outline-light">Add</button>
+    </div>
+  </div>
+  <ul id="todo-list" class="list-unstyled"></ul>
+</div>
+
+<!-- JavaScript -->
+<script>
+  // Seleção de elementos
+  const addButton = document.getElementById('add-btn');
+  const todoInput = document.getElementById('todo-input');
+  const todoList = document.getElementById('todo-list');
+
+  // Função para salvar tarefas no localStorage
+  function saveToLocalStorage(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+
+  // Função para carregar tarefas do localStorage
+  function loadFromLocalStorage() {
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos.forEach(todo => addTodoElement(todo.text, todo.completed));
+  }
+
+  // Função para adicionar um novo elemento de tarefa
+  function addTodoElement(task, completed = false) {
+    const listItem = document.createElement('li');
+    listItem.className = 'todo-item';
+
+    const taskText = document.createElement('span');
+    taskText.innerText = task;
+    if (completed) taskText.classList.add('completed');
+    taskText.classList.add('task-text');
+
+    const completeButton = document.createElement('button');
+    completeButton.className = 'btn btn-sm btn-outline-light';
+    completeButton.innerText = '✔';
+    completeButton.onclick = () => {
+      taskText.classList.toggle('completed');
+      updateLocalStorage();
+    };
+
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'btn btn-sm btn-outline-danger';
+    deleteButton.innerText = '✖';
+    deleteButton.onclick = () => {
+      todoList.removeChild(listItem);
+      updateLocalStorage();
+    };
+
+    listItem.appendChild(taskText);
+    listItem.appendChild(completeButton);
+    listItem.appendChild(deleteButton);
+    todoList.appendChild(listItem);
+  }
+
+  // Função para adicionar nova tarefa
+  function addTodo() {
+    const task = todoInput.value.trim();
+    if (task !== '') {
+      addTodoElement(task);
+      updateLocalStorage();
+      todoInput.value = '';
+    }
+  }
+
+  // Atualiza o localStorage com o estado atual das tarefas
+  function updateLocalStorage() {
+    const todos = Array.from(todoList.children).map(item => ({
+      text: item.querySelector('.task-text').innerText,
+      completed: item.querySelector('.task-text').classList.contains('completed')
+    }));
+    saveToLocalStorage(todos);
+  }
+
+  // Carregar as tarefas salvas no localStorage ao iniciar
+  window.onload = loadFromLocalStorage;
+
+  // Evento para adicionar a tarefa com o botão
+  addButton.addEventListener('click', addTodo);
+
+  // Evento para adicionar a tarefa com a tecla "Enter"
+  todoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') addTodo();
+  });
+</script>
+
+<!-- Bootstrap JavaScript e dependências -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
